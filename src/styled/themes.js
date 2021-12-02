@@ -62,12 +62,13 @@ export const darkTheme = {
     lightIcon: 'none',
 };
 export const GlobalStyle = createGlobalStyle`
-    
     * {
         margin:0px;
         padding: 0px;
         box-sizing: content-box;
         body {
+            background-color: ${({ theme }) => theme.colors.backgroundColor};
+            font-family: Spartan, sans-serif;
             #root {
                 a{
                     text-decoration: none;

@@ -1,17 +1,17 @@
 import { AvatarImg, LightThemeImg, LogoImg } from '../../Images';
 
-import * as S from '../../styled/header.styled';
+import * as H from '../../styled/header.styled';
 
 function Header() {
     return (
         <>
-            <S.Header>
-                <S.Logo src={LogoImg} alt="asd" />
-                <S.Div>
+            <H.Header>
+                <H.Logo src={LogoImg} alt="asd" />
+                <H.Div>
                     <LightThemeImg />
-                    <S.Avatar src={AvatarImg} alt="bts" />
-                </S.Div>
-            </S.Header>
+                    <H.Avatar src={AvatarImg} alt="bts" />
+                </H.Div>
+            </H.Header>
         </>
     );
 }
