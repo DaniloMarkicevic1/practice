@@ -14,12 +14,12 @@ const InvoicesHeader = ({ numberOfInvoices }) => {
             </W.InvoiceHeaderItemWrap>
 
             <W.InvoiceHeaderItemWrap direction="row">
-                <W.InvoiceHeaderItemWrap direction="row" filter>
+                <W.InvoiceHeaderItemWrap direction="row" filter="true">
                     <T.Text bold>Filter</T.Text>
                     <ArrowDown className="arrowDown" />
                 </W.InvoiceHeaderItemWrap>
 
-                <W.InvoiceHeaderItemWrap direction="row" for="button">
+                <W.InvoiceHeaderItemWrap direction="row">
                     <PlusIcon className="plusIcon" />
 
                     <Button

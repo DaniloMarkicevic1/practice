@@ -43,9 +43,10 @@ export const InvoiceHeaderItemWrap = styled.div`
     position: relative;
     flex-direction: ${({ direction }) =>
         direction === 'row' ? 'row' : 'column'};
-    justify-content: ${({ filter }) => (filter ? 'unset' : 'space-between')};
-    width: ${({ filter }) => (filter ? 'unset' : '100%')};
-    margin: ${({ filter }) => filter && '0 15px 0 0'};
+    justify-content: ${({ filterText }) =>
+        filterText ? 'unset' : 'space-between'};
+    width: ${({ filterText }) => (filterText ? 'unset' : '100%')};
+    margin: ${({ filterText }) => filterText && '0 15px 0 0'};
     .plusIcon {
         position: absolute;
         background-color: ${({ theme }) => theme.colors.white};
