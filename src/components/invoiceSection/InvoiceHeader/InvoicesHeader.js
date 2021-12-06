@@ -4,10 +4,14 @@ import Button from '../../buttons/Button';
 
 import * as T from '../../../styled/text.styled';
 import * as W from '../../../styled/wrappers.styled';
+import Form from '../../form/Form';
+import { useState } from 'react';
 
 const InvoicesHeader = ({ numberOfInvoices }) => {
+    const [a, setA] = useState(false);
     return (
         <W.InvoiceHeaderWrapper wrapAll="wrapAll">
+            {a && <Form />}
             <W.InvoiceHeaderItemWrap direction="column">
                 <T.Text bold>Invoices</T.Text>
                 <T.Text>{numberOfInvoices} of invoices</T.Text>
@@ -22,11 +26,7 @@ const InvoicesHeader = ({ numberOfInvoices }) => {
                 <W.InvoiceHeaderItemWrap direction="row">
                     <PlusIcon className="plusIcon" />
 
-                    <Button
-                        text="New"
-                        type="new"
-                        fn={() => console.log('123')}
-                    ></Button>
+                    <Button text="New" type="new" fn={() => setA(!a)}></Button>
                 </W.InvoiceHeaderItemWrap>
             </W.InvoiceHeaderItemWrap>
         </W.InvoiceHeaderWrapper>

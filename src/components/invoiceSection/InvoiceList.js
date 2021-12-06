@@ -9,6 +9,7 @@ import { EmptyInvoices } from '../../Images';
 
 import * as W from '../../styled/wrappers.styled';
 import * as T from '../../styled/text.styled';
+import InvoiceStatus from './InvoiceStatus';
 
 const InvoiceList = () => {
     const { data, getInvoice } = useContext(Context);
@@ -24,13 +25,7 @@ const InvoiceList = () => {
 
                 <T.Text area="name">{objectData.clientName}</T.Text>
 
-                <W.StatusWrap>
-                    <T.StatusCircle status={objectData.status} />
-
-                    <T.Text area="status" status={objectData.status}>
-                        {objectData.status}
-                    </T.Text>
-                </W.StatusWrap>
+                <InvoiceStatus status={objectData.status} />
 
                 <T.Text area="date">{objectData.createdAt}</T.Text>
 

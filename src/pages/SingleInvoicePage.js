@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 
-import SelectedInvoice from '../components/invoiceSection/SelectedInvoice';
+import SelectedInvoice from '../components/invoiceSection/selectedInvoice/SelectedInvoice';
 
 import Context from '../context/context';
 

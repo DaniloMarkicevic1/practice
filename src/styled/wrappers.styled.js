@@ -14,7 +14,6 @@ export const Wrapper = styled.section`
         outline: 1px solid blue;
         cursor: pointer;
     }
-
     justify-content: space-between;
 `;
 
@@ -56,4 +55,12 @@ export const InvoiceHeaderItemWrap = styled.div`
         margin: 6px 8px 6px 6px;
         z-index: 2;
     }
+`;
+
+export const AddressWrap = styled.section``;
+
+export const ItemsWrapper = styled.section``;
+
+export const FormWrapper = styled.div`
+    position: absolute;
 `;

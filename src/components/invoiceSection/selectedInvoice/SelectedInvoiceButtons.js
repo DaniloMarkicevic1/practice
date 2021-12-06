@@ -1,11 +1,13 @@
+import Button from '../../buttons/Button';
+
 const SelectedInvoiceButtons = () => {
     return (
         <>
-        <button>edit</button>
-        <button>delete</button>
-        <button>mark as paid</button>
+            <Button type="edit" text="Edit"></Button>
+            <Button type="delete" text="Delete"></Button>
+            <Button type="mark" text="Mark as paid"></Button>
         </>
-    )
-}
+    );
+};
 
-export defualt SelectedInvoiceButtons;
+export default SelectedInvoiceButtons;
