@@ -1,9 +1,11 @@
-const GoBackBtn = () => {
+import { ArrowLeft } from '../../Images';
+
+const GoBackBtn = ({ fn }) => {
     return (
-        <>
-            <p>ArrowLeft</p>
+        <div onClick={fn}>
+            <ArrowLeft />
             <button>Go Back</button>
-        </>
+        </div>
     );
 };
 

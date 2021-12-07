@@ -4,14 +4,13 @@ import Button from '../../buttons/Button';
 
 import * as T from '../../../styled/text.styled';
 import * as W from '../../../styled/wrappers.styled';
-import Form from '../../form/Form';
-import { useState } from 'react';
+import { useContext } from 'react';
+import Context from '../../../context/context';
 
 const InvoicesHeader = ({ numberOfInvoices }) => {
-    const [a, setA] = useState(false);
+    const { toggleForm, setToggleForm } = useContext(Context);
     return (
         <W.InvoiceHeaderWrapper wrapAll="wrapAll">
-            {a && <Form />}
             <W.InvoiceHeaderItemWrap direction="column">
                 <T.Text bold>Invoices</T.Text>
                 <T.Text>{numberOfInvoices} of invoices</T.Text>
@@ -23,10 +22,15 @@ const InvoicesHeader = ({ numberOfInvoices }) => {
                     <ArrowDown className="arrowDown" />
                 </W.InvoiceHeaderItemWrap>
 
-                <W.InvoiceHeaderItemWrap direction="row">
+                <W.InvoiceHeaderItemWrap
+                    direction="row"
+                    onClick={() => {
+                        setToggleForm(!toggleForm);
+                    }}
+                >
                     <PlusIcon className="plusIcon" />
 
-                    <Button text="New" type="new" fn={() => setA(!a)}></Button>
+                    <Button text="New" type="new"></Button>
                 </W.InvoiceHeaderItemWrap>
             </W.InvoiceHeaderItemWrap>
         </W.InvoiceHeaderWrapper>

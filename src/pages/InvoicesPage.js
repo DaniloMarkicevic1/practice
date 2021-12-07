@@ -1,15 +1,15 @@
-import ReactDom from 'react-dom';
+import { useContext } from 'react';
 import Form from '../components/form/Form';
 import InvoiceList from '../components/invoiceSection/InvoiceList';
+import Context from '../context/context';
 
 const InvoicesPage = () => {
+    const { toggleForm } = useContext(Context);
+
     return (
         <>
             <InvoiceList />
-            {ReactDom.createPortal(
-                <Form />,
-                document.querySelector('#form-new-root')
-            )}
+            {toggleForm && <Form text="add new form" />}
         </>
     );
 };

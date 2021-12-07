@@ -62,5 +62,10 @@ export const AddressWrap = styled.section``;
 export const ItemsWrapper = styled.section``;
 
 export const FormWrapper = styled.div`
+    background-color: rgba(0, 0, 0, 0.9);
     position: absolute;
+    color: white;
+    width: 100%;
+    height: 100vh;
+    z-index: 3;
 `;

@@ -1,8 +1,6 @@
 import { useContext } from 'react';
 import { useNavigate } from 'react-router';
 
-import Context from '../../context/context';
-
 import InvoicesHeader from './InvoiceHeader/InvoicesHeader';
 
 import { EmptyInvoices } from '../../Images';
@@ -10,9 +8,11 @@ import { EmptyInvoices } from '../../Images';
 import * as W from '../../styled/wrappers.styled';
 import * as T from '../../styled/text.styled';
 import InvoiceStatus from './InvoiceStatus';
+import { InvoicesContext } from '../../context/invoices-context';
 
 const InvoiceList = () => {
-    const { data, getInvoice } = useContext(Context);
+    const { data, getInvoice } = useContext(InvoicesContext);
+
     const navigate = useNavigate();
 
     function mapEntries(objectData) {

@@ -1,13 +1,13 @@
 import { useContext } from 'react';
 
-import Context from '../../../context/context';
+import { SingleInvoiceContext } from '../../../context/single-invoice-context';
 
 import * as T from '../../../styled/text.styled';
 import * as W from '../../../styled/wrappers.styled';
 import InvoiceStatus from '../InvoiceStatus';
 
 const InvoiceBody = () => {
-    const { invoice } = useContext(Context);
+    const { invoice } = useContext(SingleInvoiceContext);
 
     const {
         id,
@@ -24,11 +24,10 @@ const InvoiceBody = () => {
     } = invoice[0];
 
     const address = (address) => {
-        return Object.values(address).map((value) => {
-            return <T.Text>{value}</T.Text>;
+        return Object.values(address).map((value, i) => {
+            return <T.Text key={i}>{value}</T.Text>;
         });
     };
-
     const itemsList = (items) => {
         return Object.values(items).map(({ name, quantity, price, total }) => {
             return (
@@ -70,7 +69,7 @@ const InvoiceBody = () => {
             <W.ItemsWrapper>{itemsList(items)}</W.ItemsWrapper>
             {/* Total Amount */}
             <T.Text>Amount Due</T.Text>
-            <T.Text>{total}</T.Text>
+            <T.Text>${total}</T.Text>
         </>
     );
 };

@@ -1,22 +1,38 @@
-import { useState } from 'react';
-
-import Context from './context';
-
+import { createContext, useState } from 'react';
 import InvoicesData from '../data/data.json';
+
+export const InvoicesContext = createContext();
 
 const InvoicesContextProvider = (props) => {
     const [data, setData] = useState(InvoicesData);
 
     const [invoice, setInvoice] = useState([]);
 
+    const [toggleForm, setToggleForm] = useState(false);
+
+    const deleteInvoice = () => {
+        setData(data.filter((item) => item.id !== invoice[0].id));
+    };
+
     const getInvoice = (id) => {
         setInvoice(data.filter((item) => item.id === id));
     };
 
     return (
-        <Context.Provider value={{ data, setData, invoice, getInvoice }}>
+        <InvoicesContext.Provider
+            value={{
+                data,
+                setData,
+                invoice,
+                setInvoice,
+                getInvoice,
+                toggleForm,
+                setToggleForm,
+                deleteInvoice,
+            }}
+        >
             {props.children}
-        </Context.Provider>
+        </InvoicesContext.Provider>
     );
 };
 
