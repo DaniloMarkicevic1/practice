@@ -1,13 +1,13 @@
 import { useContext } from 'react';
 
-import { InvoicesContext } from '../../../context/invoices-context';
+import { FormContext } from '../../../context/form-context';
+import { SingleInvoiceContext } from '../../../context/single-invoice-context';
 
 import Button from '../../buttons/Button';
 
 const SelectedInvoiceButtons = () => {
-    const { markAsPaid, toggleForm, setToggleForm, deleteInvoice } =
-        useContext(InvoicesContext);
-
+    const { markAsPaid, deleteInvoice } = useContext(SingleInvoiceContext);
+    const { toggleForm, setToggleForm } = useContext(FormContext);
     return (
         <>
             <Button

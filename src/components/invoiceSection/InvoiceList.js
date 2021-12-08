@@ -1,14 +1,15 @@
 import { useContext } from 'react';
 import { useNavigate } from 'react-router';
 
+import { InvoicesContext } from '../../context/invoices-context';
+
 import InvoicesHeader from './InvoiceHeader/InvoicesHeader';
+import InvoiceStatus from './InvoiceStatus';
 
 import { EmptyInvoices } from '../../Images';
 
 import * as W from '../../styled/wrappers.styled';
 import * as T from '../../styled/text.styled';
-import InvoiceStatus from './InvoiceStatus';
-import { InvoicesContext } from '../../context/invoices-context';
 
 const InvoiceList = () => {
     const { data, getInvoice } = useContext(InvoicesContext);

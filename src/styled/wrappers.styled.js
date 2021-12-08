@@ -66,6 +66,14 @@ export const FormWrapper = styled.div`
     position: absolute;
     color: white;
     width: 100%;
-    height: 100vh;
     z-index: 3;
+`;
+
+export const GoBackWrapper = styled.div`
+    padding: ${({ form }) => (form ? '32px 0 24px 24px' : '32px 0 32px 24px')};
+`;
+
+export const FormStyled = styled.form`
+    width: 60%;
+    padding: 24px;
 `;

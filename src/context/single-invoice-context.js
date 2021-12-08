@@ -1,26 +1,25 @@
-import { createContext } from 'react';
+import { createContext, useContext } from 'react';
+
+import { InvoicesContext } from './invoices-context';
 
 export const SingleInvoiceContext = createContext();
 
-const SingleInvoiceProvider = ({
-    children,
-    invoice,
-    setInvoice,
-    toggleForm,
-    setToggleForm,
-    deleteInvoice,
-}) => {
+const SingleInvoiceProvider = ({ children }) => {
+    const { invoice, setInvoice, data, setData } = useContext(InvoicesContext);
+
     const markAsPaid = () => {
         setInvoice([...invoice], (invoice[0].status = 'paid'));
+    };
+
+    const deleteInvoice = () => {
+        setData(data.filter((item) => item.id !== invoice[0].id));
     };
 
     return (
         <SingleInvoiceContext.Provider
             value={{
-                markAsPaid,
                 invoice,
-                toggleForm,
-                setToggleForm,
+                markAsPaid,
                 deleteInvoice,
             }}
         >

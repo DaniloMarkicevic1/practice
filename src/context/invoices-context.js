@@ -8,12 +8,6 @@ const InvoicesContextProvider = (props) => {
 
     const [invoice, setInvoice] = useState([]);
 
-    const [toggleForm, setToggleForm] = useState(false);
-
-    const deleteInvoice = () => {
-        setData(data.filter((item) => item.id !== invoice[0].id));
-    };
-
     const getInvoice = (id) => {
         setInvoice(data.filter((item) => item.id === id));
     };
@@ -26,9 +20,6 @@ const InvoicesContextProvider = (props) => {
                 invoice,
                 setInvoice,
                 getInvoice,
-                toggleForm,
-                setToggleForm,
-                deleteInvoice,
             }}
         >
             {props.children}

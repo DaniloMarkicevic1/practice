@@ -1,19 +1,20 @@
 import reactDom from 'react-dom';
-import { FormWrapper } from '../../styled/wrappers.styled';
-import GoBackBtn from '../buttons/GoBackBtn';
-import FormBody from './FormBody';
-import Context from '../../context/context';
-
 import { useContext } from 'react';
 
+import { FormContext } from '../../context/form-context';
+
+import GoBackBtn from '../buttons/GoBackBtn';
+import FormBody from './FormBody';
+
+import { FormWrapper } from '../../styled/wrappers.styled';
+
 const FormPortal = ({ text }) => {
-    const { toggleForm, setToggleForm } = useContext(Context);
+    const { toggleForm, setToggleForm } = useContext(FormContext);
     return (
         <>
             <FormWrapper>
                 <GoBackBtn fn={() => setToggleForm(!toggleForm)} />
-                <p>{text}</p>
-                <FormBody />
+                <FormBody formType={text} />
             </FormWrapper>
         </>
     );

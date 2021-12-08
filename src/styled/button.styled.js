@@ -11,3 +11,11 @@ export const StyledButton = styled.button`
     color: ${({ theme, type }) => type === 'new' && theme.colors.white};
     font-weight: bold;
 `;
+
+export const GoBackStyled = styled.button`
+    background: none;
+    outline: none;
+    border: none;
+    color: ${({ theme }) => theme.colors.white};
+    margin: 0px 0px 0px 23px;
+`;

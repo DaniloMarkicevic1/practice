@@ -1,11 +1,14 @@
 import { ArrowLeft } from '../../Images';
 
+import { GoBackStyled } from '../../styled/button.styled';
+import { GoBackWrapper } from '../../styled/wrappers.styled';
+
 const GoBackBtn = ({ fn }) => {
     return (
-        <div onClick={fn}>
+        <GoBackWrapper form="true" onClick={fn}>
             <ArrowLeft />
-            <button>Go Back</button>
-        </div>
+            <GoBackStyled>Go Back</GoBackStyled>
+        </GoBackWrapper>
     );
 };
 

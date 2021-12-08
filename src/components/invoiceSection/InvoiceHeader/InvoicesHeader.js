@@ -1,14 +1,17 @@
-import { ArrowDown, PlusIcon } from '../../../Images';
+import { useContext } from 'react';
+
+import { FormContext } from '../../../context/form-context';
 
 import Button from '../../buttons/Button';
 
+import { ArrowDown, PlusIcon } from '../../../Images';
+
 import * as T from '../../../styled/text.styled';
 import * as W from '../../../styled/wrappers.styled';
-import { useContext } from 'react';
-import Context from '../../../context/context';
 
 const InvoicesHeader = ({ numberOfInvoices }) => {
-    const { toggleForm, setToggleForm } = useContext(Context);
+    const { toggleForm, setToggleForm } = useContext(FormContext);
+
     return (
         <W.InvoiceHeaderWrapper wrapAll="wrapAll">
             <W.InvoiceHeaderItemWrap direction="column">

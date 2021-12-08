@@ -1,15 +1,17 @@
 import { useContext } from 'react';
+
+import { FormContext } from '../context/form-context';
+
 import Form from '../components/form/Form';
 import InvoiceList from '../components/invoiceSection/InvoiceList';
-import Context from '../context/context';
 
 const InvoicesPage = () => {
-    const { toggleForm } = useContext(Context);
+    const { toggleForm } = useContext(FormContext);
 
     return (
         <>
             <InvoiceList />
-            {toggleForm && <Form text="add new form" />}
+            {toggleForm && <Form />}
         </>
     );
 };

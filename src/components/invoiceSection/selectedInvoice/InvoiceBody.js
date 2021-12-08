@@ -2,9 +2,10 @@ import { useContext } from 'react';
 
 import { SingleInvoiceContext } from '../../../context/single-invoice-context';
 
+import InvoiceStatus from '../InvoiceStatus';
+
 import * as T from '../../../styled/text.styled';
 import * as W from '../../../styled/wrappers.styled';
-import InvoiceStatus from '../InvoiceStatus';
 
 const InvoiceBody = () => {
     const { invoice } = useContext(SingleInvoiceContext);
