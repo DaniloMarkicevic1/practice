@@ -3,7 +3,6 @@ import { createContext, useContext } from 'react';
 import { InvoicesContext } from './invoices-context';
 
 export const SingleInvoiceContext = createContext();
-
 const SingleInvoiceProvider = ({ children }) => {
     const { invoice, setInvoice, data, setData } = useContext(InvoicesContext);
 
@@ -13,6 +12,7 @@ const SingleInvoiceProvider = ({ children }) => {
 
     const deleteInvoice = () => {
         setData(data.filter((item) => item.id !== invoice[0].id));
+        // deletePrompt
     };
 
     return (

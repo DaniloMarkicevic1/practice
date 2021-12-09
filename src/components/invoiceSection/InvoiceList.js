@@ -13,10 +13,9 @@ import * as T from '../../styled/text.styled';
 
 const InvoiceList = () => {
     const { data, getInvoice } = useContext(InvoicesContext);
-
     const navigate = useNavigate();
 
-    function mapEntries(objectData) {
+    const mapEntries = (objectData) => {
         return (
             <>
                 <T.Text area="id">
@@ -33,9 +32,9 @@ const InvoiceList = () => {
                 <T.Text area="total">${objectData.total.toFixed(2)}</T.Text>
             </>
         );
-    }
+    };
 
-    function RenderList() {
+    const renderList = () => {
         if (data.length < 1) {
             return <W.Img src={EmptyInvoices} alt="123" />;
         }
@@ -52,13 +51,13 @@ const InvoiceList = () => {
                 </W.Wrapper>
             );
         });
-    }
+    };
 
     return (
         <>
             <InvoicesHeader numberOfInvoices={data.length} />
 
-            {RenderList()}
+            {renderList()}
         </>
     );
 };

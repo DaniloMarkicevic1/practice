@@ -9,7 +9,7 @@ import * as W from '../../../styled/wrappers.styled';
 
 const InvoiceBody = () => {
     const { invoice } = useContext(SingleInvoiceContext);
-
+    console.log(invoice);
     const {
         id,
         description,
@@ -26,18 +26,21 @@ const InvoiceBody = () => {
 
     const address = (address) => {
         return Object.values(address).map((value, i) => {
-            return <T.Text key={i}>{value}</T.Text>;
+            return <T.Text key={Math.random()}>{value}</T.Text>;
         });
     };
+
     const itemsList = (items) => {
         return Object.values(items).map(({ name, quantity, price, total }) => {
             return (
                 <>
-                    <T.Text>{name}</T.Text>
-                    <T.Text>
-                        {quantity} x ${price}
-                    </T.Text>
-                    <T.Text>${total}</T.Text>
+                    <div key={Math.random()}>
+                        <T.Text>{name}</T.Text>
+                        <T.Text>
+                            {quantity} x ${price}
+                        </T.Text>
+                        <T.Text>${total}</T.Text>
+                    </div>
                 </>
             );
         });
