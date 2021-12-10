@@ -70,14 +70,13 @@ const FormBody = ({ formType }) => {
     };
     return (
         <>
-            <p>{formType ? formType : 'Add new form'}</p>
+            <p>{formType ? `Edit #${formObject.id}` : 'Add new form'}</p>
             <FormStyled
                 onSubmit={(e) => {
                     submitFormHandler(e);
                 }}
             >
                 <p>Bill From</p>
-                {/* asd */}
                 {/* Sender Address */}
                 {Object.entries(senderAddress).map(([key, value, i]) => {
                     return (

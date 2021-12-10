@@ -9,7 +9,7 @@ import * as W from '../../../styled/wrappers.styled';
 
 const InvoiceBody = () => {
     const { invoice } = useContext(SingleInvoiceContext);
-    console.log(invoice);
+
     const {
         id,
         description,

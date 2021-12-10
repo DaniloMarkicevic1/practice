@@ -9,6 +9,7 @@ function Header() {
                 <H.Logo src={LogoImg} alt="asd" />
                 <H.Div>
                     <LightThemeImg />
+                    <H.Line />
                     <H.Avatar src={AvatarImg} alt="bts" />
                 </H.Div>
             </H.Header>

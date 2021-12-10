@@ -1,10 +1,18 @@
 import styled from 'styled-components';
 
+export const Container = styled.div`
+    @media (min-width: 1440px) {
+        padding-left: 72px;
+        max-width: 730px;
+        margin: 0 auto;
+    }
+`;
+
 export const Wrapper = styled.section`
     display: grid;
     padding: 24px;
     background-color: ${({ theme }) => theme.colors.backgroundPrimary};
-    margin: 12px;
+    margin: 16px 24px;
     border-radius: 8px;
     grid-template-areas:
         'id name'
@@ -15,6 +23,11 @@ export const Wrapper = styled.section`
         cursor: pointer;
     }
     justify-content: space-between;
+    @media (min-width: 768px) {
+        margin: 16px 48px;
+
+        grid-template-areas: 'id name date total status';
+    }
 `;
 
 export const StatusWrap = styled.div`
@@ -27,7 +40,9 @@ export const StatusWrap = styled.div`
     background-color: ${({ theme }) => theme.colors.statusBg};
     align-items: center;
     justify-content: center;
-    color: black;
+    @media (min-width: 768px) {
+        margin-top: 0;
+    }
 `;
 
 export const Img = styled.img``;
@@ -36,6 +51,9 @@ export const InvoiceHeaderWrapper = styled.section`
     display: flex;
     flex-direction: row;
     padding: ${({ wrapAll }) => wrapAll && '32px 24px 0'};
+    @media (min-width: 768px) {
+        padding: ${({ wrapAll }) => wrapAll && '56px 48px 0'};
+    }
 `;
 export const InvoiceHeaderItemWrap = styled.div`
     display: flex;
