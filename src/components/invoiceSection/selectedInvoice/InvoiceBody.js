@@ -6,6 +6,7 @@ import InvoiceStatus from '../InvoiceStatus';
 
 import * as T from '../../../styled/text.styled';
 import * as W from '../../../styled/wrappers.styled';
+import SelectedInvoiceButtons from './SelectedInvoiceButtons';
 
 const InvoiceBody = () => {
     const { invoice } = useContext(SingleInvoiceContext);
@@ -35,11 +36,11 @@ const InvoiceBody = () => {
             return (
                 <>
                     <div key={Math.random()}>
-                        <T.Text>{name}</T.Text>
-                        <T.Text>
+                        <T.Text bold="true">{name}</T.Text>
+                        <T.Text bold="true">
                             {quantity} x ${price}
                         </T.Text>
-                        <T.Text>${total}</T.Text>
+                        <T.Text bold="true">${total}</T.Text>
                     </div>
                 </>
             );
@@ -49,31 +50,48 @@ const InvoiceBody = () => {
     return (
         <>
             {/* Status */}
-            <T.Text>Status</T.Text>
-            <InvoiceStatus status={status} />
+            <W.SingleInvoiceStatusWrap grid="yes">
+                <T.Text area="text">Status</T.Text>
+                <InvoiceStatus status={status} singleInvoice="true" />
+                <SelectedInvoiceButtons />
+            </W.SingleInvoiceStatusWrap>
             {/* ID & Description */}
-            <T.Text>#{id}</T.Text>
-            <T.Text>{description}</T.Text>
-            {/* Sender Address */}
-            <W.AddressWrap>{address(senderAddress)}</W.AddressWrap>
-            {/* Due and Created at Dates */}
-            <T.Text>InvoiceDate </T.Text>
-            <T.Text>{createdAt}</T.Text>
-            <T.Text>Payment Due </T.Text>
-            <T.Text>{paymentDue}</T.Text>
-            {/* Bill to */}
-            <T.Text>Bill To </T.Text>
-            <T.Text>{clientName}</T.Text>
-            {/* Client Address */}
-            <W.AddressWrap>{address(clientAddress)}</W.AddressWrap>
-            {/* Email */}
-            <T.Text>Sent to </T.Text>
-            <T.Text>{clientEmail}</T.Text>
-            {/* Items */}
-            <W.ItemsWrapper>{itemsList(items)}</W.ItemsWrapper>
-            {/* Total Amount */}
-            <T.Text>Amount Due</T.Text>
-            <T.Text>${total}</T.Text>
+            <W.SingleInvoiceBodyWrap>
+                <W.SingleInvoiceItemWrap area="idAndDesc">
+                    <T.Text bold="true">#{id}</T.Text>
+                    <T.Text>{description}</T.Text>
+                </W.SingleInvoiceItemWrap>
+                {/* Sender Address */}
+                <W.SingleInvoiceItemWrap area="senderAddress">
+                    <W.AddressWrap>{address(senderAddress)}</W.AddressWrap>
+                </W.SingleInvoiceItemWrap>
+                {/* Due and Created at Dates */}
+                <W.SingleInvoiceItemWrap area="dates">
+                    <T.Text>InvoiceDate </T.Text>
+                    <T.Text bold="true">{createdAt}</T.Text>
+                    <T.Text>Payment Due </T.Text>
+                    <T.Text bold="true">{paymentDue}</T.Text>
+                </W.SingleInvoiceItemWrap>
+                {/* Bill to */}
+                <W.SingleInvoiceItemWrap area="clientAddress">
+                    <T.Text>Bill To </T.Text>
+                    <T.Text bold="true">{clientName}</T.Text>
+                    {/* Client Address */}
+                    <W.AddressWrap>{address(clientAddress)}</W.AddressWrap>
+                </W.SingleInvoiceItemWrap>
+                {/* Email */}
+                <W.SingleInvoiceItemWrap area="email">
+                    <T.Text>Sent to </T.Text>
+                    <T.Text bold="true">{clientEmail}</T.Text>
+                </W.SingleInvoiceItemWrap>
+                {/* Items */}
+                <W.SingleInvoiceItemWrap area="items">
+                    <W.ItemsWrapper>{itemsList(items)}</W.ItemsWrapper>
+                    {/* Total Amount */}
+                    <T.Text>Amount Due</T.Text>
+                    <T.Text bold="true">${total}</T.Text>
+                </W.SingleInvoiceItemWrap>
+            </W.SingleInvoiceBodyWrap>
         </>
     );
 };

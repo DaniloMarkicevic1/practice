@@ -26,7 +26,7 @@ export const Avatar = styled.img`
     width: 32px;
     height: 32px;
     padding: 20px 24px;
-    @media (min-width: 768px) {
+    @media (min-width: 1440px) {
         padding: 24px 20px;
     }
 `;

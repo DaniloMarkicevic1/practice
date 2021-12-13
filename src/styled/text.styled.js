@@ -11,12 +11,13 @@ export const Text = styled.p`
         (area === 'name' && 'name') ||
         (area === 'date' && 'date') ||
         (area === 'status' && 'status') ||
+        (area === 'text' && 'text') ||
         (area === 'total' && 'total')};
     align-self: ${({ area }) => area && 'center'};
 
     text-transform: ${({ area }) => area === 'status' && 'capitalize'};
     font-weight: ${({ bold, area }) =>
-        (bold && 'bold') ||
+        (bold === 'true' && 'bold') ||
         (area === 'status' && 'bold') ||
         (area === 'id' && 'bold') ||
         (area === 'total' && 'bold')};

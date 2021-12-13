@@ -1,9 +1,9 @@
 import * as W from '../../styled/wrappers.styled';
 import * as T from '../../styled/text.styled';
 
-const InvoiceStatus = ({ status }) => {
+const InvoiceStatus = ({ status, singleInvoice }) => {
     return (
-        <W.StatusWrap>
+        <W.StatusWrap singleInvoice={singleInvoice}>
             <T.StatusCircle status={status} />
 
             <T.Text area="status" status={status}>

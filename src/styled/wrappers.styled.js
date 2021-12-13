@@ -36,13 +36,79 @@ export const StatusWrap = styled.div`
     width: 104px;
     border-radius: 8px;
     padding: 18px 0px;
-    margin-top: 12px;
+    margin-top: ${({ singleInvoice }) =>
+        singleInvoice === 'true' ? '0px' : '12px'};
     background-color: ${({ theme }) => theme.colors.statusBg};
     align-items: center;
     justify-content: center;
     @media (min-width: 768px) {
+        display: grid;
         margin-top: 0;
+        grid-area: ${({ singleInvoice }) =>
+            singleInvoice === 'true' && 'status'};
     }
+`;
+
+export const SingleInvoiceStatusWrap = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px 24px 27px;
+    background-color: ${({ theme }) => theme.colors.backgroundPrimary};
+    border-radius: ${({ theme }) => theme.radius.smallRadius};
+    @media (min-width: 768px) {
+        display: ${({ grid }) => grid === 'yes' && 'grid'};
+        margin-top: 0;
+        grid-template-areas: 'text status buttons';
+    }
+`;
+
+export const SingleInvoiceBodyWrap = styled.div`
+    padding: 24px;
+    display: grid;
+    grid-template-areas:
+        'idAndDesc .'
+        'senderAddress .'
+        'dates clientAddress'
+        'dates clientAddress'
+        'email email'
+        'items items'
+        'buttons buttons';
+    @media (min-width: 768px) {
+        grid-template-areas:
+            'idAndDesc . senderAddress'
+            'dates clientAddress email'
+            'dates clientAddress .'
+            'items items items';
+    }
+    gap: 5px;
+`;
+
+export const SingleInvoiceItemWrap = styled.div`
+    grid-area: ${({ area }) =>
+        (area === 'idAndDesc' && 'idAndDesc') ||
+        (area === 'senderAddress' && 'senderAddress') ||
+        (area === 'clientAddress' && 'clientAddress') ||
+        (area === 'dates' && 'dates') ||
+        (area === 'items' && 'items') ||
+        (area === 'email' && 'email') ||
+        (area === 'buttons' && 'buttons')};
+    padding: ${({ area }) =>
+        // (area === 'idAndDesc' && '') ||
+        (area === 'senderAddress' && '24px 0 0 0') ||
+        (area === 'clientAddress' && '0') ||
+        (area === 'dates' && '24px 0 0 0') ||
+        (area === 'items' && '24px 0') ||
+        (area === 'email' && '24px 0 0 0')};
+
+    line-height: ${({ theme, area }) =>
+        (area === 'idAndDesc' && theme.lineHeight.xs) ||
+        (area === 'senderAddress' && theme.lineHeight.s) ||
+        (area === 'clientAddress' && theme.lineHeight.s) ||
+        (area === 'dates' && theme.lineHeight.mobileM) ||
+        (area === 'items' && theme.lineHeight.xs) ||
+        (area === 'email' && theme.lineHeight.mobileM)};
 `;
 
 export const Img = styled.img``;
@@ -55,6 +121,7 @@ export const InvoiceHeaderWrapper = styled.section`
         padding: ${({ wrapAll }) => wrapAll && '56px 48px 0'};
     }
 `;
+
 export const InvoiceHeaderItemWrap = styled.div`
     display: flex;
     position: relative;
@@ -75,11 +142,23 @@ export const InvoiceHeaderItemWrap = styled.div`
     }
 `;
 
+export const SelectedInvoiceWrapper = styled.section`
+    padding: 0 24px 24px;
+`;
+
 export const AddressWrap = styled.section``;
 
-export const ItemsWrapper = styled.section``;
+export const ItemsWrapper = styled.section`
+    background-color: ${({ theme }) => theme.colors.backgroundPrimary};
+    border-radius: ${({ theme }) => theme.radius.smallRadius};
+    text-align: center;
+    div {
+        padding: 15px 0;
+    }
+`;
 
 export const FormWrapper = styled.div`
+    padding: 24px;
     background-color: rgba(0, 0, 0, 0.9);
     position: absolute;
     color: white;
@@ -88,7 +167,7 @@ export const FormWrapper = styled.div`
 `;
 
 export const GoBackWrapper = styled.div`
-    padding: ${({ form }) => (form ? '32px 0 24px 24px' : '32px 0 32px 24px')};
+    padding: ${({ form }) => (form ? '32px 0 24px 0px' : '32px 0 32px 0px')};
 `;
 
 export const FormStyled = styled.form`
