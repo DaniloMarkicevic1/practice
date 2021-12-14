@@ -53,7 +53,7 @@ const InvoiceBody = () => {
             <W.SingleInvoiceStatusWrap grid="yes">
                 <T.Text area="text">Status</T.Text>
                 <InvoiceStatus status={status} singleInvoice="true" />
-                <SelectedInvoiceButtons />
+                <SelectedInvoiceButtons query="largeScreen" />
             </W.SingleInvoiceStatusWrap>
             {/* ID & Description */}
             <W.SingleInvoiceBodyWrap>

@@ -42,7 +42,6 @@ export const StatusWrap = styled.div`
     align-items: center;
     justify-content: center;
     @media (min-width: 768px) {
-        display: grid;
         margin-top: 0;
         grid-area: ${({ singleInvoice }) =>
             singleInvoice === 'true' && 'status'};
@@ -60,13 +59,16 @@ export const SingleInvoiceStatusWrap = styled.div`
     @media (min-width: 768px) {
         display: ${({ grid }) => grid === 'yes' && 'grid'};
         margin-top: 0;
-        grid-template-areas: 'text status buttons';
+        grid-template-areas: 'text status . . . buttons';
     }
 `;
 
 export const SingleInvoiceBodyWrap = styled.div`
     padding: 24px;
+    background-color: ${({ theme }) => theme.colors.backgroundPrimary};
     display: grid;
+    margin: 16px 0;
+    border-radius: ${({ theme }) => theme.radius.smallRadius};
     grid-template-areas:
         'idAndDesc .'
         'senderAddress .'
@@ -109,6 +111,22 @@ export const SingleInvoiceItemWrap = styled.div`
         (area === 'dates' && theme.lineHeight.mobileM) ||
         (area === 'items' && theme.lineHeight.xs) ||
         (area === 'email' && theme.lineHeight.mobileM)};
+    display: ${({ query }) =>
+        (query === 'largeScreen' && 'none') ||
+        (query === 'smallScreen' && 'flex')};
+    flex-direction: row;
+    text-align: ${({ area }) => area === 'senderAddress' && 'right'};
+    @media (min-width: 768px) {
+        display: ${({ query }) =>
+            (query === 'largeScreen' && 'flex') ||
+            (query === 'smallScreen' && 'none')};
+        padding: ${({ area }) =>
+            (area === 'senderAddress' && '0 0 0 0') ||
+            (area === 'clientAddress' && '0') ||
+            (area === 'dates' && '0 0 0 0') ||
+            (area === 'items' && '0 0') ||
+            (area === 'email' && '0 0 0 0')};
+    }
 `;
 
 export const Img = styled.img``;
@@ -149,7 +167,7 @@ export const SelectedInvoiceWrapper = styled.section`
 export const AddressWrap = styled.section``;
 
 export const ItemsWrapper = styled.section`
-    background-color: ${({ theme }) => theme.colors.backgroundPrimary};
+    background-color: ${({ theme }) => theme.colors.backgroundSecondary};
     border-radius: ${({ theme }) => theme.radius.smallRadius};
     text-align: center;
     div {

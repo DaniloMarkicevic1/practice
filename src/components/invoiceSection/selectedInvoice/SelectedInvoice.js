@@ -10,7 +10,7 @@ const SelectedInvoice = () => {
         <>
             <GoBackBtn fn={() => navigate('/')} />
             <InvoiceBody />
-            <SelectedInvoiceButtons />
+            <SelectedInvoiceButtons query="smallScreen" />
         </>
     );
 };

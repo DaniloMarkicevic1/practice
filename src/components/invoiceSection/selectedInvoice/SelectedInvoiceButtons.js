@@ -6,12 +6,12 @@ import { SingleInvoiceItemWrap } from '../../../styled/wrappers.styled';
 
 import Button from '../../buttons/Button';
 
-const SelectedInvoiceButtons = () => {
+const SelectedInvoiceButtons = ({ query }) => {
     const { markAsPaid, deleteInvoice } = useContext(SingleInvoiceContext);
     const { toggleForm, setToggleForm } = useContext(FormContext);
     return (
         <>
-            <SingleInvoiceItemWrap area="buttons">
+            <SingleInvoiceItemWrap area="buttons" query={query}>
                 <Button
                     type="edit"
                     text="Edit"
